@@ -1,0 +1,44 @@
+-- Quais os 10 episodios mais assistidos?
+
+select Temporada, Episodio, Titulo, Espectadores_EUA from episodios order by Espectadores_EUA desc limit 10;
+
+-- Quais episodios tem melhores avaliacoes?
+
+select Temporada, Episodio, Titulo, Avaliacao, Votos, Duracao from episodios order by Avaliacao DESC limit 10;
+
+-- Quais episodios tem piores avaliacoes?
+
+select Temporada, Episodio, Titulo, Avaliacao, Votos, Duracao from episodios order by Avaliacao limit 10;
+
+-- Quais personagem aparecem em mais episodios? 
+
+select Personagem, Episodio_Aparente from personagens order by Episodio_Aparente desc limit 10;
+
+-- Qual regiao com maior numero de casas?
+
+select Regiao, count(Regiao) from casas group by Regiao order by count(Regiao) desc limit 10;
+
+-- Qual episódios mais avaliados pelos usuários?
+
+select Temporada, Episodio, Titulo, Votos from episodios order by Votos desc limit 10;
+
+-- Quais episódios mais avaliados pela críticos?
+
+select Episodio, Titulo, Avaliacao, Criticas from episodios order by Criticas desc limit 10;
+
+-- Quais episódios mais longos?
+
+select Episodio, Temporada, Titulo, Duracao from episodios order by Duracao desc limit 10;
+
+-- Quais episódios mais curtos?
+
+select Episodio, Temporada, Titulo, Duracao from episodios order by Duracao limit 10;
+
+-- Qual diretor dirigiu mais episódios?
+
+select Diretor, count(Diretor), Temporada, Episodio, Titulo from episodios group by Diretor order by count(Diretor) desc limit 10;
+
+-- Qual a soma de episodios e duração?
+
+select count(Episodio), sum(Duracao) from episodios;
+
